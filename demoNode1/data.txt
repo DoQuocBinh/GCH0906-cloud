@@ -1,0 +1,6 @@
+<html>
+    <body>
+        <h1 style='color:green'>Hello World!</h1>
+        <input type='button' value='Ok'/>
+    </body>
+</html>
