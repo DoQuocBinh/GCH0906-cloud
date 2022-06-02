@@ -9,7 +9,7 @@
 <body>
     <h1 style="color:blue ;">Dang ky Lunch</h1>
     <form action="/registerLunch" method="post">
-        Name <input type="text" name="txtName">
+        Name <input type="text" name="txtName"> <span style="color: red;">{{errorMsg}}</span> 
         <br>
         Food <select name="food">
                 {{#each foods}}
