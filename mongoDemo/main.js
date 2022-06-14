@@ -9,7 +9,7 @@ app.get('/',(req,res)=>{
     res.render('home')
 })
 //duong dan den database
-var url = 'mongodb://localhost:27017';
+var url = 'mongodb://127.0.0.1:27017';
 //import thu vien MongoDB
 var MongoClient = require('mongodb').MongoClient;
 
