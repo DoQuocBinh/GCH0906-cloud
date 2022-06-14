@@ -11,7 +11,8 @@
 </head>
 <body>
     <h1>Create a new product</h1>
-    <form action="/createProduct" method="post">
+    <div class="table-responsive" style="margin: 20px;">
+        <form action="/createProduct" method="post">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" name="txtName">
@@ -26,5 +27,7 @@
         </div>         
         <input type="submit" value="Create Product" class="btn btn-default">
     </form>
+    </div>
+    
 </body>
 </html>
