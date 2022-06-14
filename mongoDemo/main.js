@@ -13,6 +13,17 @@ var url = 'mongodb://localhost:27017';
 //import thu vien MongoDB
 var MongoClient = require('mongodb').MongoClient;
 
+app.get('/viewAll',async (req,res)=>{
+    //1.ket noi den database server voi dia chi la url
+    let client= await MongoClient.connect(url);
+    //2.truy cap database ATNToys
+    let dbo = client.db("ATNToys");
+    //tra ve toan bo bang product
+    let products = await dbo.collection("product").find().toArray()
+    //hien thi trang viewProduct voi Product trong Database tra ve
+    res.render('allProduct',{'products':products})
+})
+
 app.post('/createProduct',async (req,res)=>{
     let name = req.body.txtName
     let price =req.body.txtPrice
