@@ -13,25 +13,35 @@
 
 <body>
     <h1>All product</h1>
+    <form action="/search" method="post">
+        Product Name or Product ID <input type="text" name="txtName">
+        <br>
+        <input type="submit" value="Search">
+    </form>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             {{#each products}}
-                <li data-target="#myCarousel" data-slide-to="{{@index}}"></li>
+            {{#if @first}}
+            <li data-target="#myCarousel" data-slide-to="{{@index}}" class="active"></li>
+            {{else}}
+            <li data-target="#myCarousel" data-slide-to="{{@index}}"></li>
+            {{/if}}
             {{/each}}
         </ol>
-
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
-                <img class="d-block w-100" src="https://www.simplyrecipes.com/thmb/zfPCnV044VigRKLA8uK4bNAutCk=/648x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Beef-Pho-LEAD-3-2d2dd6f136224e749f6af4d54a0f788e.jpg" alt="First slide">
-            </div>
-             {{#each products}}
-                <div class="item">
-                    <img src="{{picURL}}" width="150" height="100" alt="{{name}}" />
-                </div>
-             {{/each}}           
+            {{#each products}}
+                {{#if @first}}
+                    <div class="item active">
+                        <img class="d-block w-100" src="{{picURL}}" width="150" height="100" alt="{{name}}" />
+                    </div>
+                {{else}}
+                    <div class="item">
+                        <img class="d-block w-100" src="{{picURL}}" width="150" height="100" alt="{{name}}" />
+                    </div>
+                {{/if}}
+            {{/each}}
         </div>
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
