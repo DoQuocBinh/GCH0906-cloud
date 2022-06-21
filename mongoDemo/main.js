@@ -1,5 +1,6 @@
 var express = require('express')
 const async = require('hbs/lib/async')
+const { ObjectId } = require('mongodb')
 var app = express()
 
 app.set('view engine','hbs')
@@ -20,7 +21,7 @@ app.post('/search', async (req,res)=>{
     //2.truy cap database ATNToys
     let dbo = client.db("ATNToys");
     //tra ve toan bo bang product
-    let products = await dbo.collection("product").find({'name': new RegExp(nameSearch,'i')}).toArray()
+    let products = await dbo.collection("product").find({$or:[{'name': new RegExp(nameSearch,'i')},{_id: nameSearch}]}).toArray()
     //hien thi trang viewProduct voi Product trong Database tra ve
     res.render('allProduct',{'products':products})
 })
