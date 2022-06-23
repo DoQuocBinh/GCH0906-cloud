@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page!</title>
+</head>
+<body>
+    {{#if name}}
+         <h1>Hello {{name}}!</h1>
+    {{else}}
+        <h1> Ban chua dang nhap</h1>
+    {{/if}}
+    
+    <h2>Ban da truy cap {{count}}</h2>
+    <form action="/register" method="post">
+        Name <input type="text" name="txtName">
+        <input type="submit" value="Register">
+    </form>
+    <br>
+    <a href="/profile">See my profile</a>
+</body>
+</html>
