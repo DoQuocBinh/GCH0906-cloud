@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Edit product</title>
+</head>
+<body>
+    <div class="table-responsive" style="margin: 20px;">
+        <form action="/editProduct" method="post">
+        <input type="hidden" name="_id" value="{{product._id}}">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="txtName" value="{{product.name}}">
+            <div style="color: red;">{{nameError}}</div> 
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" name="txtPrice" id="price" class="form-control" value="{{product.price}}">
+        </div>
+        <div class="form-group">
+            <label for="picture">Picture URL</label>
+            <input type="text" name="txtPicture" id="picture" class="form-control" value="{{product.picURL}}">
+        </div>         
+        <input type="submit" value="Update Product" class="btn btn-default">
+    </form>
+    </div>
+</body>
+</html>
